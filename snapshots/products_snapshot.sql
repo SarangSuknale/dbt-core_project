@@ -17,6 +17,4 @@ select
       latest_order
 from {{ ref('dim_products') }}
 
-
-
 {% endsnapshot %}
