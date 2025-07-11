@@ -18,4 +18,5 @@ select
 from {{ ref('dim_products') }}
 
 
+
 {% endsnapshot %}
