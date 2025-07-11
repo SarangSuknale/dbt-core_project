@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+   - name: super_store
+     database: dbt_learning
+     schema: learning
+     tables:
+       - name: customers
+         description: This table contains customer related details
+         columns:
+            - name: cust_id
+              description: This is the primary key
+       - name: products
+         description: This table contains all details about products
+         columns:
+            - name: prod_id
+              description: This is the primary key
+       - name: orders
+         description: This table contains all details about orders
+         columns:
+           - name: orders_id
+             description: This is the primary key

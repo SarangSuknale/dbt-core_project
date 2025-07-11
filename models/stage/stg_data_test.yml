@@ -1,0 +1,49 @@
+version: 2
+
+models:
+   - name: stg_customers
+     description: This is the model where you can find customers details
+     columns:
+        - name: customer_id
+          description: primary key
+          tests:
+             - unique
+             - not_null
+        - name: country
+          description: customer's country 
+          tests:
+             - accepted_values:
+                 values: ['United States']
+    
+   - name: stg_products
+     description: This model contains the data about stg_products
+     columns:
+        - name: product_id
+          description: primary key
+          tests: 
+            - unique
+            - not_null
+          
+   - name: stg_orders
+     description: This this orders details
+     columns:
+        - name: order_id
+          description: primary key
+          tests:
+             - unique
+             - not_null
+        - name: customer_id
+          description: foreign key from customer table
+          tests:
+             - relationships:
+                  to: "{{ref('stg_customers')}}"
+                  field: customer_id
+        - name: product_id
+          description: foreign key from product table
+          tests:
+             - relationships:
+                  to: "{{ref('stg_products')}}"
+                  field: product_id
+                
+               
+        
